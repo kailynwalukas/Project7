@@ -57,6 +57,9 @@ public class GackWorld extends World {
 		// add new witch "Jacob" in lund with threshold 2
 		new Witch("Jacob", lund, 2, lund);
 		
+		// add new Thing "dumbbell" to lund
+		lund.gain(new Thing("Dumbbell"));
+		
 		lounge.gain(new Thing("Karl's glasses"));
 		
 		library.gain(new Scroll("Scroll of Enlightenment"));
