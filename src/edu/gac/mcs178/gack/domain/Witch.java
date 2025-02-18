@@ -19,7 +19,7 @@ public class Witch extends AutoPerson {
 		List<Person> others = otherPeopleAtSamePlace();
 		if (!others.isEmpty()) {
 			Person victim = others.get(Utility.randInt(others.size()));
-			if (victim.getPossessions().)
+			// if (victim.getPossessions().)
 			curse(victim);
 		} else {
 			super.act();
@@ -43,7 +43,7 @@ public class Witch extends AutoPerson {
 	public void eatChocolates(Person person) {
 		List<Thing> personsPossessions = new ArrayList<Thing>(person.getPossessions());
 		for (Thing thing : personsPossessions) {
-			if (personsPossessions.contains(thing.getName() == "White Chocolate Raspberry Truffle"))
+			// if (personsPossessions.contains(thing.getName() == "White Chocolate Raspberry Truffle"))
 			person.lose(thing);
 		}
 	}

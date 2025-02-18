@@ -24,6 +24,11 @@ public class GackWorld extends World {
 		Place offices = new Place("Offices");
 		Place dormitory = new Place("Dormitory");
 		Place pond = new Place("Pond");
+		Place lund = new Place("Lund"); // add Lund as new place
+		
+		// make Lund a neighbor for dorm in NW direction
+		dormitory.addNewNeighbor("northwest", lund);
+		lund.addNewNeighbor("southeast", dormitory);
 		
 		foodService.addNewNeighbor("down", po);
 		po.addNewNeighbor("south", alumniHall);
