@@ -65,6 +65,9 @@ public class GackWorld extends World {
 		computerLab.gain(new Scroll("NeXT User's Reference"));
 		dormitory.gain(new Scroll("Late Lab Report"));
 		
+		// adding new scroll item to Lund location
+		lund.gain(new Scroll ("Louis Don't Barf Enchantment"));
+		
 		foodService.gain(new Chocolate("Hazelnut Bon Bon"));
 		foodService.gain(new Chocolate("White Chocolate Raspberry Truffle"));
 		
