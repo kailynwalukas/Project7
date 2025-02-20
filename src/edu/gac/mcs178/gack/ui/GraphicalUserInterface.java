@@ -89,18 +89,25 @@ public class GraphicalUserInterface extends JFrame implements MessageDisplay {
 		paceSlider.addChangeListener(paceSliderListener);
 		controlPanel.add(paceSlider);
 		
-		// Take combo box
+		// Change player's name button
+		// change ui so everything aligns after adding "eat" listener
+		JButton changeNameButton = new JButton("Change player's name");
+		changeNameButton.addActionListener(new ChangePlayersNameActionListener(this, player));
+		controlPanel.add(changeNameButton);
 		
-		takeJComboBox = new JComboBox();
-		takeActionListener = new TakeActionListener(this, player, takeJComboBox);
-		takeJComboBox.addActionListener(takeActionListener);
-		controlPanel.add(takeJComboBox);
 		
 		// List possessions button
 		
 		JButton listPossessionsButton = new JButton("List possessions");
 		listPossessionsButton.addActionListener(new ListPossessionsActionListener(this, player));
 		controlPanel.add(listPossessionsButton);
+		
+		// Take combo box
+		
+		takeJComboBox = new JComboBox();
+		takeActionListener = new TakeActionListener(this, player, takeJComboBox);
+		takeJComboBox.addActionListener(takeActionListener);
+		controlPanel.add(takeJComboBox);
 		
 		// Go combo box
 		
@@ -116,11 +123,6 @@ public class GraphicalUserInterface extends JFrame implements MessageDisplay {
 		giveJComboBox.addActionListener(giveActionListener);
 		controlPanel.add(giveJComboBox);
 
-		// Change player's name button
-		
-		JButton changeNameButton = new JButton("Change player's name");
-		changeNameButton.addActionListener(new ChangePlayersNameActionListener(this, player));
-		controlPanel.add(changeNameButton);
 
 		// Read combo box
 		
