@@ -116,12 +116,13 @@ public class Person {
 		}
 	}
 	
+	// adding a give method
 	public void give(Thing thing, Person recipient) {
 		if (equals(thing.getOwner())) {
-			thing.setOwner(recipient);
-			possessions.remove(thing);
+			thing.setOwner(recipient); // set new owner
+			possessions.remove(thing); // I lose the thing
 			say("I give " + thing);
-			recipient.possessions.add(thing);
+			recipient.possessions.add(thing); // recipient gains thing
 		} else {
 			Utility.displayMessage(this + " doesn't have " + thing);
 		}
