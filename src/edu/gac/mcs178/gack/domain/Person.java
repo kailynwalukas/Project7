@@ -76,6 +76,15 @@ public class Person {
 		}
 	}
 	
+	// make a lift method
+	public void lift(Dumbbell dumbbell) {
+		if ((dumbbell.isOwned()) && (dumbbell.getOwner().equals(this))) {
+			dumbbell.beLifted();
+		} else {
+			Utility.displayMessage(this + " does not have " + dumbbell);
+		}
+	}
+	
 	public void haveFit() {
 		say("Yaaaah! I am upset");
 	}

@@ -5,6 +5,7 @@ import edu.gac.mcs178.gack.domain.Chocolate;
 import edu.gac.mcs178.gack.domain.Person;
 import edu.gac.mcs178.gack.domain.Place;
 import edu.gac.mcs178.gack.domain.Scroll;
+import edu.gac.mcs178.gack.domain.Dumbbell;
 import edu.gac.mcs178.gack.domain.Thing;
 import edu.gac.mcs178.gack.domain.Witch;
 import edu.gac.mcs178.gack.domain.Wizard;
@@ -54,12 +55,12 @@ public class GackWorld extends World {
 		new Witch("Barbara", offices, 3, pond);
 		new Wizard("Elvee", offices, 1, chamberOfWizards);
 		
-		// add new witch "Jacob" in lund with threshold 2
-		new Witch("Jacob", lund, 2, pond);
+		// add new witch "Jacob" in chamber with threshold 2
+		new Witch("Jacob", chamberOfWizards, 2, pond);
 		
 		// add new Thing "dumbbell" to lund
-		lund.gain(new Thing("Dumbbell"));
-		
+		lund.gain(new Dumbbell("15 lbs"));
+				
 		lounge.gain(new Thing("Karl's glasses"));
 		
 		library.gain(new Scroll("Scroll of Enlightenment"));
