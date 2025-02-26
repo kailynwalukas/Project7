@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.JComboBox;
 
 import edu.gac.mcs178.gack.domain.Person;
+import edu.gac.mcs178.gack.domain.Thing;
 import edu.gac.mcs178.gack.domain.Chocolate;
 
 public class EatActionListener implements ActionListener {
@@ -17,7 +18,7 @@ public class EatActionListener implements ActionListener {
 	private Person player;
 	private JComboBox eatJComboBox;
 	private boolean enabled;
-	private List<Chocolate> chocolates;
+	private List<Thing> things;
 
 	public EatActionListener(GraphicalUserInterface gui, Person player, JComboBox eatJComboBox) {
 		super();
@@ -25,10 +26,12 @@ public class EatActionListener implements ActionListener {
 		this.player = player;
 		this.eatJComboBox = eatJComboBox;
 		this.enabled = true;
-		chocolates = Chocolate.chocolatesIn(player.getPlace());
+		things = player.getPossessions();
 		eatJComboBox.addItem(INTSRUCTIONS);
-		for (Chocolate chocolate : chocolates) {
-			eatJComboBox.addItem(chocolate);
+		for (Thing thing : things) {
+			if (thing instanceof Chocolate) {
+				eatJComboBox.addItem(thing);
+			}		
 		}
 	}
 	
@@ -38,18 +41,21 @@ public class EatActionListener implements ActionListener {
 	
 	public void updateJComboBox() {
 		eatJComboBox.removeAllItems();
-		chocolates = Chocolate.chocolatesIn(player.getPlace());
+		things = player.getPossessions();
 		eatJComboBox.addItem(INTSRUCTIONS);
-		for (Chocolate chocolate : chocolates) {
-			eatJComboBox.addItem(chocolate);
+		for (Thing thing : things) {
+			if (thing instanceof Chocolate) {
+				eatJComboBox.addItem(thing);
+			}		
 		}
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (enabled) {
 			Chocolate item = (Chocolate) eatJComboBox.getSelectedItem();
-			if (!item.getName().equals(INTSRUCTIONS.getName())) {
+			if (!item.equals(INTSRUCTIONS)) {
 				gui.displayMessage("\n>>> Eat " + item);
 				player.eat(item);
 				gui.playTurn();

@@ -77,7 +77,6 @@ public class GackWorld extends World {
 		// adding new scroll item to Lund location
 		lund.gain(new Scroll ("Louis Don't Barf Enchantment"));
 		
-		foodService.gain(new Chocolate("Hazelnut Bon Bon"));
 		foodService.gain(new Chocolate("White Chocolate Raspberry Truffle"));
 		
 		setPlayer(new Person("player", dormitory));
