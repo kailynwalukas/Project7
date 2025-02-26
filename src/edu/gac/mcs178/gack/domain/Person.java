@@ -7,6 +7,7 @@ import edu.gac.mcs178.gack.Utility;
 
 public class Person {
 	
+	private String strength;
 	private String name;
 	private Place place;
 	private List<Thing> possessions;
@@ -15,6 +16,8 @@ public class Person {
 	public void setName(String name) { this.name = name; }
 	public Place getPlace() { return place; }
 	public List<Thing> getPossessions() { return possessions; }
+	public String getStrength() { return strength; }
+	public void setStrength(String strength) { this.strength = strength; }
 
 	public Person(String name, Place place) {
 		super();
@@ -22,6 +25,7 @@ public class Person {
 		this.place = place;
 		this.possessions = new ArrayList<Thing>();
 		place.gain(this);
+		this.strength = "Weak";
 	}
 	
 	public void say(String text) {

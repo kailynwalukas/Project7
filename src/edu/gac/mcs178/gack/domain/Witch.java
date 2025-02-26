@@ -20,14 +20,22 @@ public class Witch extends AutoPerson {
 		if (!others.isEmpty()) {
 			Person victim = others.get(Utility.randInt(others.size()));
 			// if (victim.getPossessions().)
-			curse(victim);
+			if (victim.getStrength() == "Weak") {
+				curse(victim);
+			} else {
+				say("Darn! You are too " + victim.getStrength() + " to curse!");
+				if (victim.getStrength() == "Strong") {
+					victim.setStrength("Weak");
+				} else { victim.setStrength("Strong"); }
+				victim.say("I am now " + victim.getStrength());
+			}
 		} else {
 			super.act();
 		}
 	}
 
 	public void curse(Person person) {
-		List<Thing> personsPossessions = new ArrayList<Thing>(person.getPossessions());
+		/*List<Thing> personsPossessions = new ArrayList<Thing>(person.getPossessions());
 		for (Thing thing : personsPossessions) {
 			if (thing.getName() == "White Chocolate Raspberry Truffle") {
 				say("Oooh, I will eat your chocolate!");
@@ -37,7 +45,10 @@ public class Witch extends AutoPerson {
 			turnIntoFrog(person);
 			say("Hee hee " + person + " looks better in green!");
 		}
-		}
+		} */
+		say("Hah hah hah, I'm going to turn you into a frog, " + person);
+		turnIntoFrog(person);
+		say("Hee hee " + person + " looks better in green!");
 	}
 	
 	public void eatChocolates(Person person) {

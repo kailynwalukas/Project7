@@ -17,6 +17,12 @@ public class Dumbbell extends Thing {
 			Utility.displayMessage("No one has " + getName());
 		} else {
 			owner.say("I lift " + getName());
+			if (owner.getStrength() == "Weak"){
+				owner.setStrength("Strong");
+			} else {
+				owner.setStrength("Super Strong");
+			}
+			owner.say("I am " + owner.getStrength());
 		}
 	}
 	
