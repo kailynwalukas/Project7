@@ -19,7 +19,15 @@ public class Witch extends AutoPerson {
 		List<Person> others = otherPeopleAtSamePlace();
 		if (!others.isEmpty()) {
 			Person victim = others.get(Utility.randInt(others.size()));
-			curse(victim);
+			if (victim.getStrength() == "Weak") {
+				curse(victim);
+			} else {
+				say("Darn! You are too " + victim.getStrength() + " to curse!");
+				if (victim.getStrength() == "Strong") {
+					victim.setStrength("Weak");
+				} else { victim.setStrength("Strong"); }
+				victim.say("I am now " + victim.getStrength());
+			}
 		} else {
 			super.act();
 		}
