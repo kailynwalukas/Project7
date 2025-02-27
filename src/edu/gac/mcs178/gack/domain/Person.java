@@ -75,6 +75,7 @@ public class Person {
 			chocolate.beEaten();
 			chocolate.becomeUnowned();
 			possessions.remove(chocolate);
+			place.lose(chocolate);
 		} else {
 			Utility.displayMessage(this + " does not have " + chocolate);
 		}
