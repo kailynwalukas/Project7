@@ -14,6 +14,8 @@ public class Witch extends AutoPerson {
 		this.pond = pond;
 	}
 
+	// We created a "dumbbell" object that, when lifted, increases the player's strength
+	// If a player is strong, they cannot be cursed, instead their strength will be reduced
 	@Override
 	public void act() {
 		List<Person> others = otherPeopleAtSamePlace();
@@ -33,6 +35,8 @@ public class Witch extends AutoPerson {
 		}
 	}
 
+	// We created a "chocolate" object, if they player has a chocolate, the witch will take their chocolate
+	// Instead of turning them into a frog
 	public void curse(Person person) {
 		// modify curse so that a witch will eat the victim's chocolate instead of turning them into a frog
 		boolean hasChocolates = false;
